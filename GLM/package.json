@@ -1,0 +1,29 @@
+{
+  "name": "mayasquare-sales-reporting",
+  "version": "1.0.0",
+  "description": "Sales revenue reporting dashboard for MayaSquare WooCommerce store",
+  "main": "scripts/extract-orders.js",
+  "scripts": {
+    "extract": "node scripts/extract-orders.js",
+    "process": "node scripts/process-orders.js",
+    "test": "node tests/test-calculations.js",
+    "dashboard": "python3 -m http.server 8080 --directory dashboard",
+    "full": "npm run extract && npm run process"
+  },
+  "keywords": [
+    "woocommerce",
+    "sales",
+    "reporting",
+    "dashboard"
+  ],
+  "author": "Mayasquare Integration Team",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "csv-writer": "^1.6.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "skills": {
+    "todo": {
+      "version": "1.1.0",
+      "installedAt": 1769612538181
+    },
+    "memory-setup": {
+      "version": "1.0.0",
+      "installedAt": 1769613093901
+    },
+    "deep-research": {
+      "version": "1.0.0",
+      "installedAt": 1769613095704
+    },
+    "youtube-transcript": {
+      "version": "1.0.1",
+      "installedAt": 1769613098172
+    },
+    "calendar": {
+      "version": "1.0.0",
+      "installedAt": 1769613100415
+    },
+    "email": {
+      "version": "1.1.0",
+      "installedAt": 1769613102100
+    },
+    "twitter": {
+      "version": "1.1.0",
+      "installedAt": 1769613104661
+    },
+    "byterover": {
+      "version": "1.2.2",
+      "installedAt": 1769613106912
+    },
+    "security-monitor": {
+      "version": "1.0.0",
+      "installedAt": 1769613109120
+    },
+    "atxp": {
+      "version": "1.0.0",
+      "installedAt": 1769613110871
+    },
+    "reddit-read-only": {
+      "version": "1.0.0",
+      "installedAt": 1769613113492
+    },
+    "browser-use": {
+      "version": "1.0.0",
+      "installedAt": 1769613115648
+    },
+    "humanizer": {
+      "version": "1.0.0",
+      "installedAt": 1769613117664
+    },
+    "dex": {
+      "version": "1.1.0",
+      "installedAt": 1769613119982
+    },
+    "deepwork-tracker": {
+      "version": "0.1.1",
+      "installedAt": 1769613122088
+    },
+    "workout": {
+      "version": "1.1.0",
+      "installedAt": 1769613124595
+    },
+    "linearis": {
+      "version": "1.0.0",
+      "installedAt": 1769613127100
+    },
+    "task-tracker": {
+      "version": "1.0.0",
+      "installedAt": 1769613130025
+    },
+    "skills-search": {
+      "version": "1.0.4",
+      "installedAt": 1769613132167
+    },
+    "prompt-engineering-expert": {
+      "version": "1.0.0",
+      "installedAt": 1769613183371
+    },
+    "agentmail": {
+      "version": "1.1.1",
+      "installedAt": 1769613186025
+    },
+    "duckdb-cli-ai-skills": {
+      "version": "1.0.0",
+      "installedAt": 1769613188075
+    },
+    "linkedin-cli": {
+      "version": "1.0.0",
+      "installedAt": 1769613189989
+    },
+    "polymarketagent": {
+      "version": "1.0.0",
+      "installedAt": 1769613191874
+    },
+    "geo-optimization": {
+      "version": "1.1.0",
+      "installedAt": 1769613194267
+    },
+    "perry-coding-agents": {
+      "version": "1.5.0",
+      "installedAt": 1769613196448
+    },
+    "perry-workspaces": {
+      "version": "1.1.0",
+      "installedAt": 1769613198621
+    },
+    "obsidian-conversation-backup": {
+      "version": "1.0.0",
+      "installedAt": 1769613201365
+    },
+    "youtube-watcher": {
+      "version": "1.0.0",
+      "installedAt": 1769613203436
+    },
+    "perplexity": {
+      "version": "1.0.0",
+      "installedAt": 1769765506130
+    }
+  }
+}

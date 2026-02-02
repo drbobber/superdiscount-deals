@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MayaSquare Sales Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>MayaSquare Sales Dashboard</h1>
+      <div class="header-controls">
+        <button id="refreshBtn" class="btn btn-primary">Refresh Data</button>
+        <button id="exportBtn" class="btn btn-secondary">Export CSV</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <div class="container">
+      <button class="tab-btn active" data-tab="overview">Overview</button>
+      <button class="tab-btn" data-tab="products">By Product</button>
+      <button class="tab-btn" data-tab="stores">By Store</button>
+      <button class="tab-btn" data-tab="matrix">Product-Store Matrix</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- Overview Tab -->
+    <section id="overview" class="tab-content active">
+      <div class="date-range">
+        <select id="overviewPeriod">
+          <option value="today">Today</option>
+          <option value="week" selected>This Week</option>
+          <option value="month">This Month</option>
+          <option value="all">All Time</option>
+        </select>
+      </div>
+
+      <div class="summary-cards">
+        <div class="card">
+          <div class="card-icon">💰</div>
+          <div class="card-content">
+            <div class="card-label">Total Revenue</div>
+            <div class="card-value" id="totalRevenue">€0.00</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">📦</div>
+          <div class="card-content">
+            <div class="card-label">Total Orders</div>
+            <div class="card-value" id="totalOrders">0</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏪</div>
+          <div class="card-content">
+            <div class="card-label">Active Stores</div>
+            <div class="card-value" id="activeStores">0</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <div class="card-content">
+            <div class="card-label">Products Sold</div>
+            <div class="card-value" id="productsSold">0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-container">
+          <h3>Revenue Over Time</h3>
+          <canvas id="revenueChart"></canvas>
+        </div>
+        <div class="chart-container">
+          <h3>Top 5 Products</h3>
+          <canvas id="topProductsChart"></canvas>
+        </div>
+      </div>
+
+      <div class="table-section">
+        <h3>Top 5 Products</h3>
+        <table id="topProductsTable">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Revenue</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="table-section">
+        <h3>Top 5 Stores</h3>
+        <table id="topStoresTable">
+          <thead>
+            <tr>
+              <th>Store</th>
+              <th>Orders</th>
+              <th>Revenue</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Products Tab -->
+    <section id="products" class="tab-content">
+      <div class="date-range">
+        <select id="productPeriod">
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly" selected>Monthly</option>
+        </select>
+      </div>
+
+      <div class="chart-container full-width">
+        <h3>Revenue by Product</h3>
+        <canvas id="productsRevenueChart"></canvas>
+      </div>
+
+      <div class="table-section">
+        <h3>All Products</h3>
+        <input type="text" id="productSearch" placeholder="Search products..." class="search-input">
+        <table id="productsTable">
+          <thead>
+            <tr>
+              <th>Product ID</th>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th>Revenue</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Stores Tab -->
+    <section id="stores" class="tab-content">
+      <div class="date-range">
+        <select id="storePeriod">
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly" selected>Monthly</option>
+        </select>
+      </div>
+
+      <div class="chart-container full-width">
+        <h3>Revenue by Store</h3>
+        <canvas id="storesRevenueChart"></canvas>
+      </div>
+
+      <div class="table-section">
+        <h3>All Stores</h3>
+        <table id="storesTable">
+          <thead>
+            <tr>
+              <th>Store</th>
+              <th>Orders</th>
+              <th>Revenue</th>
+              <th>Top Product</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Product-Store Matrix Tab -->
+    <section id="matrix" class="tab-content">
+      <div class="chart-container full-width">
+        <h3>Product-Store Sales Matrix</h3>
+        <canvas id="matrixChart"></canvas>
+      </div>
+
+      <div class="table-section">
+        <h3>Top Product-Store Combinations</h3>
+        <table id="matrixTable">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Store</th>
+              <th>Quantity</th>
+              <th>Revenue</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Last updated: <span id="lastUpdated">-</span></p>
+      <p>Generated by MayaSquare Sales Reporting System</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
